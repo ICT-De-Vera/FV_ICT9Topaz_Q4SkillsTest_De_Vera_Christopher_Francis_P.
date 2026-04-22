@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arashi Academy</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Michroma&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-image: url('https://img.freepik.com/free-vector/wavy-style-abstract-big-particle-dark-banner-flow-motion_1017-60698.jpg?semt=ais_hybrid&w=740&q=80');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 40px;
+        font-family: 'Michroma', sans-serif;
+    }
+    .background-image {
+        position: fixed;
+        top: 1000px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .navbar-underline {
+        color: white;
+        height: 5px;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.415);
+        top: 55px;
+    }
+    .card {
+      color: #fff;
+      background-color: rgb(20, 20, 20);
+      border-radius: 16px;
+      border: 1px solid rgba(14, 14, 205, 0.244);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card img.card-img-top {
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    .card:hover img.card-img-top {
+      transform: scale(1.1);
+    }
+    .page-wrapper {
+        margin-top: 80px;
+    }
+    #Symbol {
+        width: 60px;
+        height: 60px;
+        position: relative;
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-black bg-dark shadow py-1 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img src="data:image/jpeg;base64,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" alt="Cursed Gear" id="Symbol">
+    </a>
+     <ul class="navbar-nav me-auto">
+        <li class="nav-item">      <!--#FareMatrix and #FMH will be changed to index.html in other pages-->
+          <a class="nav-link" href="Index.html" style="color: #fff;">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="showERRORclassevent()" style="color: #fff;">Class List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="showERRORevent()" style="color: #fff;">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="showERRORevent()" style="color: #fff;">Expedition</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="logout()" style="color: #fff;">Logout</a>
+      </ul>
+
+</nav>
+<div class="navbar-underline"></div>
+<div class="container page-wrapper">
+    <div class="row g-5 mb-3">
+        <div class="col-md-4">
+            <div class="card card-dark" style="width: 18rem;" onclick="showERRORevent()">
+                <img src="https://bloxinformer.com/wp-content/uploads/2026/03/cursed-gear-feature-image1.png" class="card-img-top" alt="English">
+                <div class="card-body">
+    <small class="text-light">Cursed Technique Output</small>
+        </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-dark" style="width: 18rem;" onclick="showERRORevent()">
+                <img src="https://bloxinformer.com/wp-content/uploads/2026/03/cursed-gear-feature-image1.png" class="card-img-top" alt="Math">
+                    <div class="card-body">      
+    <small class="text-light">Cursed Technique Efficiency</small>
+        </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-dark" style="width: 18rem;" onclick="showERRORevent()">
+                <img src="https://bloxinformer.com/wp-content/uploads/2026/03/cursed-gear-feature-image1.png" class="card-img-top" alt="Science">
+                    <div class="card-body">
+    <small class="text-light">Cybernetics</small>
+        </div>
+            </div>
+        </div>
+    </div>
+<div class="row g-5">
+        <div class="col-md-4">
+            <div class="card card-dark" style="width: 18rem;" onclick="showERRORevent()">
+                <img src="https://bloxinformer.com/wp-content/uploads/2026/03/cursed-gear-feature-image1.png" class="card-img-top" alt="English">
+                <div class="card-body">
+    <small class="text-light">Physical Education</small>
+        </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-dark" style="width: 18rem;" onclick="showERRORevent()">
+                <img src="https://bloxinformer.com/wp-content/uploads/2026/03/cursed-gear-feature-image1.png" class="card-img-top" alt="Math">
+                    <div class="card-body">      
+    <small class="text-light">Mathematics</small>
+        </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-dark" style="width: 18rem;" onclick="showERRORevent()">
+                <img src="https://bloxinformer.com/wp-content/uploads/2026/03/cursed-gear-feature-image1.png" class="card-img-top" alt="Science">
+                    <div class="card-body">
+    <small class="text-light">Curse Identification</small>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showERRORevent() {
+        alert("Failed to load, Please try again at a later time.");
+    }
+    function showERRORclassevent() {
+        alert("You are already in the class list." + "  Error code: 67");
+    }
+    function logout() {
+        let confirmLogout = confirm("Exit now?"); //confirm() has 2 options : ok (True) and cancel(False)
+            
+        if (confirmLogout) { //if ok or True
+            window.location.href = "index.html"; //load page
+        }
+    } 
+
+    function message(){
+        alert("Not available at this time.");
+    }
+
+</script>
+</body>
+</html>
+
